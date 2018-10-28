@@ -1,0 +1,356 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.collections.FXCollections?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.control.DatePicker?>
+<?import java.lang.Integer?>
+<?import javafx.scene.control.SpinnerValueFactory.IntegerSpinnerValueFactory?>
+<?import javafx.scene.control.TextArea?>
+
+<BorderPane id="AnchorPane333" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.111" fx:controller="learn.ProductpageController">
+    
+    <left>
+        <GridPane hgap="10" vgap="15">
+            <padding>
+                <Insets bottom="25" left="25" right="25" top="25" />
+            </padding>
+            
+            <Button onAction="#hotel" text="Hotel rooms" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+            <Button onAction="#resturant" text="Resturants" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+            <Button onAction="#onlinestore" text="Online stores" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+            
+            
+            <Label fx:id="userLb1" text="" GridPane.columnIndex="0" GridPane.rowIndex="16" />
+            <Button onAction="#profile" text="View profile" GridPane.columnIndex="0" GridPane.rowIndex="17" />
+            <Button onAction="#cart" text="view cart" GridPane.columnIndex="0" GridPane.rowIndex="18" />
+            <Button onAction="#SignOut" text="Sign out" GridPane.columnIndex="0" GridPane.rowIndex="19" />
+            <MenuButton text="others" GridPane.columnIndex="0" GridPane.rowIndex="20">
+                <items>
+                    <MenuItem onAction="#profile" text="View profile" />
+                    <MenuItem onAction="#profile" text="Gallery" />
+                    
+                </items>
+            </MenuButton>
+         
+        </GridPane>
+    </left>
+    
+    
+    <center>
+        <StackPane>
+            <StackPane fx:id="stacky">
+                <GridPane fx:id="gridy" visible="true">
+                
+                    <TableView fx:id="hotel" visible="true" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                        <columns>
+                            <TableColumn text="s/n">
+                                <cellValueFactory>
+                                    <PropertyValueFactory property="id" />
+                                </cellValueFactory>
+                            </TableColumn>
+            
+                            <TableColumn prefWidth="200" text="Our Rooms">
+                                <cellValueFactory>
+                                    <PropertyValueFactory property="ourRooms" />
+                                </cellValueFactory>
+                            </TableColumn>
+            
+                            <TableColumn prefWidth="200" text="status">
+                                <cellValueFactory>
+                                    <PropertyValueFactory property="Status" />
+                                </cellValueFactory>
+                            </TableColumn>
+                    
+                            <TableColumn prefWidth="200" text="Description">
+                                <cellValueFactory>
+                                    <PropertyValueFactory property="Description" />
+                                </cellValueFactory>
+                            </TableColumn>
+            
+                            <TableColumn prefWidth="200" text="Prices">
+                                <cellValueFactory>
+                                    <PropertyValueFactory property="price" />
+                                </cellValueFactory>
+                            </TableColumn>
+            
+                        </columns>
+                        <items>
+                            <FXCollections fx:id="hotel1" fx:factory="observableArrayList">
+                
+                
+                            </FXCollections>
+                        </items>
+                    </TableView>  
+                    
+                    <FlowPane fx:id="otherbuttons" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                        <padding>
+                            <Insets bottom="25" right="25" top="25" />
+                        </padding>
+                        <!--<Button text ="add to cart" onAction ="#addToCartHotel" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                        <Button text ="Quantity" onAction ="#addToCartHotel" GridPane.columnIndex="1" GridPane.rowIndex="1"/>-->
+                        <Button onAction="#addToCartHotel" text="add to cart" />
+                        <Label fx:id="quantity" text=" Quantity " visible="true" />
+                        <Spinner fx:id="spinner1" />
+                    </FlowPane>
+                    
+                    <FlowPane fx:id="hotelbuttons" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                        <padding>
+                            <Insets bottom="25" right="25" top="25" />
+                        </padding>
+                        <Button onAction="#addToCartHotel" text="add to cart" />
+                        <Label fx:id="hotelquantity" text=" Book for " visible="true" />
+                        <Spinner fx:id="spinner" />
+                        <Label  text=" day(s) "  />
+                        <Label  text="|"  />
+                        <Label  text=" Check-in-date "  />
+                          <DatePicker fx:id="datep"/>
+                    </FlowPane>
+                    <TableView fx:id="resturanttable" visible="false" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                        <columns>
+                            <TableColumn text="s/n">
+                                <cellValueFactory>
+                                    <PropertyValueFactory property="foodID" />
+                                </cellValueFactory>
+                            </TableColumn>
+            
+                            <TableColumn prefWidth="200" text="food">
+                                <cellValueFactory>
+                                    <PropertyValueFactory property="foodName" />
+                                </cellValueFactory>
+                            </TableColumn>
+            
+                            <TableColumn prefWidth="200" text="Food Content">
+                                <cellValueFactory>
+                                    <PropertyValueFactory property="foodContent" />
+                                </cellValueFactory>
+                            </TableColumn>
+            
+                            <TableColumn prefWidth="200" text="Food Prices">
+                                <cellValueFactory>
+                                    <PropertyValueFactory property="foodPrice" />
+                                </cellValueFactory>
+                            </TableColumn>
+                    
+                            <TableColumn prefWidth="200" text="Food Status">
+                                <cellValueFactory>
+                                    <PropertyValueFactory property="foodStatus" />
+                                </cellValueFactory>
+                            </TableColumn>
+                            
+                        </columns>
+                        <items>
+                            <FXCollections fx:id="resturanttable1" fx:factory="observableArrayList">
+                
+                
+                            </FXCollections>
+                        </items>
+                    </TableView>
+            
+                    <TableView fx:id="onlinestore" visible="false" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                    <columns>
+                        <TableColumn text="s/n">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="productID" />
+                            </cellValueFactory>
+                        </TableColumn>
+            
+                        <TableColumn prefWidth="200" text="Product Name">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="productName" />
+                            </cellValueFactory>
+                        </TableColumn>
+            
+                        <TableColumn prefWidth="200" text="Product Description">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="productDescription" />
+                            </cellValueFactory>
+                        </TableColumn>
+                        
+                        <TableColumn prefWidth="200" text="status">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="productStatus" />
+                            </cellValueFactory>
+                        </TableColumn>
+            
+                        <TableColumn prefWidth="200" text="prices">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="price" />
+                            </cellValueFactory>
+                        </TableColumn>
+                       
+                    </columns>
+                    <items>
+                        <FXCollections fx:id="onlinestore3" fx:factory="observableArrayList">
+                
+                
+                        </FXCollections>
+                    </items>
+                </TableView>  
+                
+                <FlowPane GridPane.columnIndex="0" GridPane.rowIndex="2">
+                    
+                    <TableView fx:id="cart" visible="true" >
+                        <columns>
+
+                            <TableColumn fx:id="column1" prefWidth="200" text=" product Name">
+                                <cellValueFactory>
+                                    <PropertyValueFactory property="productName" />
+                                </cellValueFactory>
+                            </TableColumn>
+
+                            <TableColumn fx:id="column2" prefWidth="200" text="Product Price">
+                                <cellValueFactory>
+                                    <PropertyValueFactory property="productPrice" />
+                                </cellValueFactory>
+                            </TableColumn>
+
+                        </columns>
+                        <items>
+                            <FXCollections fx:id="onlinestore333" fx:factory="observableArrayList">
+
+                            </FXCollections>
+                        </items>
+                    </TableView>
+                    
+                    <GridPane>
+                        <padding>
+                            <Insets bottom="25" left="30"  />
+                        </padding>
+                        <TextArea prefHeight="200.0" prefWidth="400.0" fx:id = "description" visible="false" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                        
+                        <FlowPane GridPane.columnIndex="0" GridPane.rowIndex="0">
+                            <padding>
+                                <Insets bottom="25" />
+                            </padding>
+                            <TableView fx:id="bookings" visible="false" prefHeight="100.0" >
+                                <columns>
+
+                                    <TableColumn fx:id="column1a" prefWidth= "200" text= "Room number" >
+                                        <cellValueFactory>
+                                            <PropertyValueFactory property= "rooms" />
+                                        </cellValueFactory>
+                                    </TableColumn>
+
+                                    <TableColumn fx:id= "column2b" prefWidth="200" text= "Check-in-date" >
+                                        <cellValueFactory>
+                                            <PropertyValueFactory property= "date1" />
+                                        </cellValueFactory>
+                                    </TableColumn>
+
+                                </columns>
+                                <items>
+                                    <FXCollections fx:id= "booking3" fx:factory="observableArrayList" >
+                                        
+                                    </FXCollections>
+                                </items>
+                            </TableView>
+                            <Button fx:id="removebutton1" onAction="#Remove1" text="Remove an item" />
+                        </FlowPane>
+                        
+                    </GridPane>
+
+                        
+                                                
+                   
+                </FlowPane>
+                
+                <FlowPane GridPane.columnIndex="0" GridPane.rowIndex="3">
+                    <!--<Button text ="Remove an item" onAction ="#Remove"  fx:id="removebutton" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+                    <Button text ="Confirm" onAction ="#Confirm" GridPane.columnIndex="1" GridPane.rowIndex="3"/>-->
+                    <padding>
+                            <Insets bottom="25" right="25" top="25" />
+                    </padding>
+                    <Button fx:id="removebutton" onAction="#Remove" text="Remove an item" />
+                    <Button onAction="#Confirm" text="Confirm" />
+                </FlowPane>
+               <ImageView  fx:id ="pictures" visible="true" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+            </GridPane>
+            
+            
+             
+        </StackPane>
+        
+            <BorderPane fx:id="cartarea" visible="false">
+                    <center>
+                        <GridPane>
+                            <GridPane id="payment" hgap="10" prefHeight="400.0" prefWidth="600.0" vgap="10" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                                <padding>
+                                    <Insets bottom="25" left="25" right="25" top="25" />
+                                </padding>
+                                <Text text="items purchased" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                                <TextField fx:id="itemsPurchased" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="0" />
+                                <Text text="total" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                                <TextField fx:id="totalnumber" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                <Text text="Payment Details" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                                <Label text="Choose mode of Payment" GridPane.columnIndex="0" GridPane.columnSpan="1" GridPane.rowIndex="3" />
+                                <RadioButton mnemonicParsing="false" text="Visa card" GridPane.columnIndex="0" GridPane.rowIndex="4">
+                                    <toggleGroup>
+                                    <ToggleGroup fx:id="mygroup" />    
+                                    </toggleGroup>
+                                </RadioButton>
+                                <RadioButton mnemonicParsing="false" text="Master Card" toggleGroup="$mygroup" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                <RadioButton text="paypal" toggleGroup="$mygroup" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                                <Text text="Payment Details" GridPane.columnIndex="0" GridPane.rowIndex="5" />
+                                <Label text="Enter card Number:" GridPane.columnIndex="0" GridPane.rowIndex="6" />
+                                <TextField GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                                <Label text="Enter CVV:" GridPane.columnIndex="0" GridPane.rowIndex="7" />
+                                <TextField GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                                <Label text="Enter Confirmation Numbers:" GridPane.columnIndex="0" GridPane.rowIndex="8" /> 
+                                <TextField GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                                <Label text="Enter Postal Address" GridPane.columnIndex="0" GridPane.rowIndex="9" /> 
+                                <TextField GridPane.columnIndex="1" GridPane.rowIndex="9" />
+                                <Button fx:id="clicky" onAction="#confirm1" text="Confirm" GridPane.columnIndex="0" GridPane.rowIndex="10" />
+
+
+                            </GridPane>
+                  
+                        </GridPane>
+                    </center>
+                    
+            </BorderPane>
+            
+            
+                <BorderPane fx:id="profile" visible="false">
+                        <center>
+                            <GridPane  hgap="10" prefHeight="400.0" prefWidth="600.0" vgap="20" alignment ="CENTER">
+
+                                <padding>
+                                    <Insets bottom="25" right="25" />
+                                </padding>
+                                
+                                <Text text="Profile" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                                <Label text="First Name:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                                <TextField GridPane.columnIndex="1" GridPane.rowIndex="2" fx:id="firstname" />
+                                <Label text="Last Name:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                                <TextField GridPane.columnIndex="1" GridPane.rowIndex="3" fx:id="lastname" />
+                                <Label text="Username:" GridPane.columnIndex="0" GridPane.rowIndex="4" /> 
+                                <TextField GridPane.columnIndex="1" GridPane.rowIndex="4" fx:id="username1" />
+                                <Label text="Email:" GridPane.columnIndex="0" GridPane.rowIndex="5" /> 
+                                <TextField GridPane.columnIndex="1" GridPane.rowIndex="5" fx:id="email1"/>
+                                
+                            </GridPane>
+                        </center>
+
+                </BorderPane>
+            
+        </StackPane>
+    </center>
+    
+</BorderPane>

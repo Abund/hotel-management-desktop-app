@@ -1,0 +1,90 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Oct 25, 2017, 8:25:45 AM
+    Author     : Abun
+*/
+
+#loginlabel{
+    -fx-font-size:32px;
+    -fx-font-family:"Arial Black";
+    -fx-fill:#115E7F;
+}
+
+#actiontarget{
+    -fx-fill:WHITE;
+    -fx-font-weight:bold;
+    -fx-background-color: none;
+}
+
+#login{
+    -fx-text-fill: white;
+    -fx-font-family:"Arial Narrow";
+    -fx-font-weight:bold;
+    -fx-background-color: linear-gradient(#61a2b1,#2a5058);
+    
+}
+
+#createAccount{
+    -fx-font-family:"Arial Narrow";
+    -fx-text-fill: FIREBRICK;
+    -fx-background-color: none;
+    -fx-font-weight:bold;
+    -fx-border-style: none;
+}
+
+/*create an account page*/
+#createaccount{
+    -fx-font-size:32px;
+    -fx-font-family:"Arial Black";
+    -fx-fill:#115E7F;
+}
+
+#signup{
+    -fx-text-fill: white;
+    -fx-font-family:"Arial Narrow";
+    -fx-font-weight:bold;
+    -fx-background-color: linear-gradient(#61a2b1,#2a5058);
+}
+
+#loginpage{
+    -fx-text-fill: FIREBRICK;
+}
+
+/*forgetpage*/
+
+#please{
+    -fx-font-size:32px;
+    -fx-font-family:"Arial Black";
+    -fx-fill:#115E7F;
+}
+
+#actiontarget13{
+    -fx-text-fill: FIREBRICK;
+}
+
+#actiontarget14{
+    -fx-text-fill: white;
+    -fx-font-family:"Arial Narrow";
+    -fx-font-weight:bold;
+    -fx-background-color: linear-gradient(#61a2b1,#2a5058);
+}
+
+/*product page*/
+#description{
+    
+}
+/*.button {
+    -fx-text-fill: white;
+    -fx-font-family:"Arial Narrow";
+    -fx-font-weight:bold;
+    -fx-background-color: #115E7F;
+    
+}*/
+
+/*#AnchorPane333{
+    -fx-background-color: white;
+}*/
